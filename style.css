@@ -16,7 +16,7 @@ html {
 }
 
 body {
-    background-image: url('/img/fondoTacosDeGuisado.jpg');
+    background-image: url('img/fondoTacosDeGuisado.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* El fondo se queda quieto al hacer scroll */
