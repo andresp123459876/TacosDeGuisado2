@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doña Rosa Tacos De Guisado Y Mas</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <header>
+        <div class="header all">
+            <div class="header logo">
+                <a href="">
+                    <img src="/img/LogoTacosDeGuisado.jpg">
+                    </img>
+                </a>
+            </div>
+            <div class="menu">
+                <a href="menuTacos.html">Menu</a>
+                <a href="#foto-de-tacos"> Fotos</a>
+                <a href="#ubicacion">Ubicacion</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+            <div class="abrir-sidebar" onclick="abrirSideBar()">
+                <ion-icon name="menu-outline"></ion-icon>
+            </div>
+        </div>
+        <div class="header-all-sidebar">
+            <div class="cerrar-sidebar" onclick="cerrarSideBar()">
+                <ion-icon class="close-outline" name="close-outline"></ion-icon>
+            </div>
+            <div class="header-logo-dos">
+                <a href="">
+                    <img src="/img/LogoTacosDeGuisado.jpg">
+                    </img>
+                </a>
+            </div>
+            <div class="menu">
+                <a href="menuTacos.html">Menu</a>
+                <a href="#foto-de-tacos"> Fotos</a>
+                <a href="#ubicacion">ubicacion</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="ventana-carrusel">
+            <div class="contenedor-all-carrusel">
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="3000">
+                    <div class="carousel-inner">
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="/img/TacoDeGuisadoLogo.jpg" alt="Second slide">
+                        </div>
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="/img/Promocion3TacosDeGuisadox110.jpg" alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="/img/JuevesDePozoleEstiloGuerrero12a6pm.png"
+                                alt="Third slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="/img/PozoleConAcompanamientos(RECORTE).png"
+                                alt="Third slide">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- agregar un boton que diga "cotizar por whatssap" -->
+        <div class="descripcion">
+            <h1>La mejor comida casera en tu evento</h1>
+            <p>"Llevamos el sabor tradicional de Dona Rosa hasta tu mesa"</p>
+        </div>
+        <div id="foto-de-tacos" class="foto-de-tacos">
+            <div class="contenedor-taco">
+                <img src="/img/tacos/TacoDeCarnitaConNopales(NegraComic).jpg" alt="" onclick="mostrarImagen(this)"
+                    style="cursor: zoom-in;">
+            </div>
+            <div class="contenedor-taco">
+                <img src="/img/tacos/TacoDeChicharronPrensado(NegraComic).jpg" alt="" onclick="mostrarImagen(this)"
+                    style="cursor: zoom-in;">
+            </div>
+            <div class="contenedor-taco">
+                <img src="/img/tacos/TacoDeMilanesa(NaranjaComic).jpg" alt="" onclick="mostrarImagen(this)"
+                    style="cursor: zoom-in;">
+            </div>
+            <div class="contenedor-taco">
+                <img src="/img/tacos/TacoDeMoleConHuevoDuro(NegraComic).jpg" alt="" onclick="mostrarImagen(this)"
+                    style="cursor: zoom-in;">
+            </div>
+            <div class="contenedor-taco">
+                <img src="/img/tacos/TacoDeMorita(NaranjaComic).jpg" alt="" onclick="mostrarImagen(this)"
+                    style="cursor: zoom-in;">
+            </div>
+            <div class="contenedor-taco">
+                <img src="/img/tacos/TacoDeSalpicon(NaranjaComic).jpg" alt="" onclick="mostrarImagen(this)"
+                    style="cursor: zoom-in;">
+            </div>
+        </div>
+
+        <section class="servicios-info">
+            <h2>Nuestro Servicio Incluye:</h2>
+            <div class="grid-servicios">
+                <div class="item-servicio">
+                    <ion-icon class="icon-servicio-info" name="restaurant-outline"></ion-icon>
+                    <p>Arroz y Frijoles ilimitados</p>
+                </div>
+                <div class="item-servicio">
+                    <ion-icon class="icon-servicio-info" name="flame-outline"></ion-icon>
+                    <p>Guisados calientes en bufetera</p>
+                </div>
+                <div class="item-servicio">
+                    <ion-icon class="icon-servicio-info" name="people-outline"></ion-icon>
+                    <p>Personal para servir</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="ubicacion" class="ubicacion">
+            <div class="container text-center py-5">
+                <h2>Nuestra Ubicación</h2>
+                <p>Av. Reforma, Colonia Ejidal, 23470 Cabo San Lucas, B.C.S.</p>
+
+                <div class="map-responsive">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.259!2d-109.9200374!3d22.9014591!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86af4b80bd45924f%3A0x4f35a4851d3e1b5c!2zRG_DsWEgUm9zYSBUYWNvcyBkZSBHdWlzYWRvIHkgTcOhcw!5e0!3m2!1ses-419!2smx!4v1712000000000!5m2!1ses-419!2smx"
+                        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+                    </iframe>
+                </div>
+
+                <div class="link-mapa">
+                    <a href="https://www.google.com/maps/place/Do%C3%B1a+Rosa+Tacos+de+Guisado+y+M%C3%A1s/@22.901296,-109.9218506,17z/data=!4m6!3m5!1s0x86af4b80bda5924f:0x4f35a4851d3e1b5c!8m2!3d22.9014591!4d-109.9200374!16s%2Fg%2F11n57djgfp?entry=ttu&g_ep=EgoyMDI2MDMzMS4wIKXMDSoASAFQAw%3D%3D"
+                        target="_blank" class="btn btn-outline-primary">
+                        <ion-icon name="map-outline"></ion-icon> Abrir en Google Maps
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="contacto">
+            <div class="contenedor-contacto">
+                <h1>Direccion:
+                    <p>Av. Reforma, Colonia Ejidal, 23470 Cabo San Lucas, B.C.S.</p>
+                </h1>
+                <h1>Telefono:
+                    <p>+52 624 246 1127
+                        <br>
+                        <br>
+                        Solo Mensajes por whatssap
+                    </p>
+                </h1>
+                <h1>Horario:
+                    <p>Lunes a Sábado de 6:00 AM a 2:00 PM (Domingos cerrado).</p>
+                </h1>
+            </div>
+        </section>
+    </main>
+
+    <div id="tacoModal" class="modal-taco" onclick="cerrarImagen()">
+        <span class="cerrar-modal">&times;</span>
+        <img class="modal-contenido" id="imgGrande">
+        <div id="caption"></div>
+    </div>
+
+
+</body>
+
+
+<!-- DOCUMENTO JS -->
+<script src="main.js"></script>
+
+<!-- icons -->
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+
+<!-- bootstrap para carrusel de fotos -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+</html>
