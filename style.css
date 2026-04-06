@@ -352,12 +352,20 @@ main {
     margin-top: 30px;
 }
 
+.servicios-info h4 {
+    text-align: center;
+    color: white;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-size: 3rem;
+    padding: 10px;
+}
+
 .servicios-info h2 {
     text-align: center;
     color: white;
     font-family: "Comic Sans MS", "Comic Sans", cursive;
     font-size: 3rem;
-    padding: 50px;
+    padding: 20px;
 }
 
 .servicios-info .grid-servicios {
