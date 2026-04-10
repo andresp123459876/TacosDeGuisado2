@@ -96,7 +96,7 @@ header .all {
 .menu a:hover {
     text-decoration: none;
     background-color: black;
-    color: #fff;
+    color: var(--amarillo-letra);
     text-align: center;
 }
 
