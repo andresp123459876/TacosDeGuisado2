@@ -61,12 +61,22 @@ header .all {
     justify-content: center;
 }
 
+.logo:hover{
+    background-color: black;
+
+}
+
 .logo a img {
-    height: 150px;
+    height: 148px;
     width: 150px;
     border: 5px solid white;
     border-radius: 30% 30% 30% 30%;
     padding: 5px;
+}
+
+
+.logo a img:hover{
+    border: 5px dashed var(--amarillo-fondo);
 }
 
 .menu {
