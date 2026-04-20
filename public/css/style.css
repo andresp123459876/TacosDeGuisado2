@@ -1,0 +1,561 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --amarillo-fondo: rgba(253, 169, 18);
+    /*#fda912*/
+    --amarillo-letra: rgba(252, 193, 125);
+    /*#fcc17d*/
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-image: url('/img/fondoTacosDeGuisado.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* El fondo se queda quieto al hacer scroll */
+    min-height: 100vh;
+}
+
+header {
+    width: 100%;
+    position: fixed;
+    /* Lo fija a la pantalla */
+    top: 0;
+    /* Lo pega al borde superior */
+    left: 0;
+    /* Lo pega al borde izquierdo */
+    z-index: 2000;
+    /* Asegura que pase por encima de las fotos del carrusel */
+}
+
+
+
+header .all {
+    width: 100%;
+    height: 150px;
+    background-image: url('/img/fondoTacosDeGuisado.jpg');
+    opacity: 0.9;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 3px solid var(--amarillo-letra);
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    /*pequena efecto sombra sobre el carrusel*/
+}
+
+.logo {
+    background-color: var(--amarillo-fondo);
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo:hover {
+    background-color: black;
+
+}
+
+.logo a img {
+    height: 148px;
+    width: 150px;
+    border: 5px solid white;
+    border-radius: 30% 30% 30% 30%;
+    padding: 5px;
+}
+
+
+.logo a img:hover {
+    border: 5px dashed var(--amarillo-fondo);
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    margin-left: 1%;
+    margin-right: 0;
+}
+
+.menu a {
+    color: #fff;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-size: 2rem;
+    text-decoration: none;
+    /* margin: 20px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+.menu a:hover {
+    text-decoration: none;
+    background-color: black;
+    color: var(--amarillo-letra);
+    text-align: center;
+}
+
+.menu-outline {
+    font-size: 80px;
+    height: 158px;
+    width: 150px;
+    cursor: pointer;
+    display: none;
+}
+
+.header-all-sidebar {
+    background-color: rgba(253, 169, 18, 0.5);
+    /* === CAMBIO 2: El efecto borroso === */
+    backdrop-filter: blur(10px);
+    /* Desenfoque de 10px */
+    border: 5px solid white;
+    /*Cambiamos el comportamiento de bloque a fijo*/
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    height: 100vh;
+    /*hace que ocupe todo el alto de la pantalla*/
+    width: 280px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /*alinea todos lo items desde arriba*/
+    align-items: center;
+
+    /*Asegura que este por encima de todo lo demas*/
+    z-index: 1000;
+    /* ✅ AGREGA ESTO: */
+    transform: translateX(100%);
+    /* La saca de la pantalla a la derecha */
+    transition: transform 0.4s ease-in-out;
+    /* Define la suavidad del movimiento */
+}
+
+.header-all-sidebar .menu {
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.close-outline {
+    font-size: 80px;
+}
+
+.header-logo-dos {
+    background-color: var(--amarillo-fondo);
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-logo-dos a img {
+    height: 150px;
+    width: 150px;
+    border: 5px solid white;
+    border-radius: 30% 30% 30% 30%;
+    padding: 5px;
+}
+
+main {
+    margin-top: 150px;
+    /* Evita que el header tape el carrusel */
+}
+
+.ventana-carrusel {
+    width: 100%;
+    height: 550px;
+    overflow: hidden;
+    border: 5px solid white
+}
+
+.contenedor-all-carrusel {
+    background-color: var(--amarillo-fondo);
+    width: 100%;
+    height: 550px;
+}
+
+.contenedor-all-carrusel img {
+    height: 550px;
+}
+
+/* Forzamos a que el carrusel ocupe todo el ancho visual */
+.carousel {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+}
+
+.carousel-inner,
+.carousel-item {
+    background-color: black;
+    width: 100%;
+    height: 550px;
+    /* Mantén tu altura constante */
+    transition: transform 0.5s ease-in-out !important;
+
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 550px;
+    /* Esto es vital: hace que la imagen cubra todo el espacio 
+       sin estirarse (como un fondo de pantalla) */
+    object-fit: contain;
+    object-position: center;
+}
+
+/*-----------------*/
+.descripcion {
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.descripcion h1 {
+    color: var(--amarillo-letra);
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-size: 55px;
+}
+
+.descripcion p {
+    color: white;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-size: 25px;
+}
+
+/*-------------------*/
+/* Esto hace que el scroll se detenga 100px antes del elemento */
+/* section, .descripcion, .foto-de-tacos {
+    scroll-margin-top: 100px; 
+} */
+
+
+.foto-de-tacos {
+    background-color: transparent;
+    /* Quitamos el rojo de prueba */
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    /* Alineación horizontal */
+    flex-wrap: wrap;
+    /* Si no caben, saltan a la siguiente línea */
+    justify-content: center;
+    /* Centra los tacos */
+    gap: 25px;
+    /* Espacio entre cada foto */
+}
+
+.foto-de-tacos .contenedor-taco {
+    background-color: transparent;
+    /* Opcional: un fondo blanco si la imagen tiene transparencia */
+    width: 380px;
+    /* <--- Cambia este número para hacerlas más o menos pequeñas */
+    height: auto;
+    /* Deja que la altura se ajuste al contenido */
+    transition: transform 0.3s ease;
+    /* Efecto suave al pasar el mouse */
+    margin: 10px;
+}
+
+.foto-de-tacos .contenedor-taco:hover {
+    transform: scale(1.1);
+    /* Se agranda un poquito al pasar el mouse */
+    cursor: pointer;
+}
+
+.foto-de-tacos .contenedor-taco img {
+    width: 100%;
+    /* Ocupa todo el ancho de los 380px del contenedor */
+    height: auto;
+    /* Mantiene la proporción original para que el texto no se estire */
+    /* display: block; */
+    border-radius: 10px;
+    /* Un toque redondeado para que se vea moderno */
+}
+
+/*---------------*/
+/* El fondo del modal (oscuro y transparente) */
+.modal-taco {
+    display: none;
+    /* Escondido por defecto */
+    position: fixed;
+    z-index: 3000;
+    /* Por encima de todo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    /* Negro con opacidad */
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+}
+
+/* La imagen que se verá en grande */
+.modal-contenido {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 100%;
+    border: 5px solid white;
+    border-radius: 15px;
+    animation: zoom 0.3s;
+    /* Efecto de entrada */
+}
+
+/* Animación de apertura */
+@keyframes zoom {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+/* Botón de cerrar */
+.cerrar-modal {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 60px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/*---------------*/
+.servicios-info {
+    background-color: transparent;
+    height: 30%;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.servicios-info h4 {
+    text-align: center;
+    color: white;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-size: 3rem;
+    padding: 10px;
+}
+
+.servicios-info h2 {
+    text-align: center;
+    color: white;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-size: 3rem;
+    padding: 20px;
+}
+
+.servicios-info .grid-servicios {
+    background-color: transparent;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    text-align: center;
+    color: var(--amarillo-letra);
+    font-size: 2rem;
+}
+
+.servicios-info .grid-servicios .item-servicio ion-icon {
+    color: var(--amarillo-fondo);
+    font-size: 4rem;
+}
+
+/*-------------*/
+
+.map-responsive {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    /* Relación de aspecto 16:9 */
+    position: relative;
+    height: 180px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.map-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.ubicacion h2 {
+    color: white;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-size: 3rem;
+}
+
+.ubicacion p {
+    color: white;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-size: 2rem;
+}
+
+.link-mapa a {
+    color: white;
+    border-color: var(--amarillo-fondo);
+    margin-top: 10px;
+}
+
+.link-mapa a:hover {
+    background-color: var(--amarillo-fondo);
+    color: white;
+    border-color: white;
+}
+
+/*-----------------------*/
+
+.contenedor-contacto {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    color: white;
+}
+
+.contenedor-contacto h1 {
+    font-size: 3rem;
+    text-align: center;
+    margin: 25px;
+}
+
+.contenedor-contacto h1 p {
+    color: var(--amarillo-letra);
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+#contacto #redes-sociales {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+#contacto #redes-sociales ion-icon {
+    font-size: 4rem;
+    color: white;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+#contacto #redes-sociales ion-icon:hover {
+    font-size: 5rem;
+    background-color: black;
+    color: var(--amarillo-letra);
+    border: 3px solid var(--amarillo-fondo);
+    border-radius: 30%;
+}
+
+@media screen and (max-width:850px) {
+    .logo {
+        /* width: 50%; */
+        background: transparent;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    /*clase agregada con js*/
+    .header-all-sidebar.active {
+        transform: translateX(0);
+        /*Lo muestra en la pantalla*/
+        width: 50%;
+    }
+
+    .header-logo-dos {
+        background: transparent;
+    }
+
+    .abrir-sidebar {
+        width: 150px;
+        height: 144px;
+        font-size: 5rem;
+        color: black;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        background-color: var(--amarillo-fondo);
+        border: 3px solid white;
+        border-radius: 30% 30% 30% 30%;
+    }
+
+    .abrir-sidebar:hover{
+        border: 5px dashed var(--amarillo-fondo);
+        background-color: black;
+        color: var(--amarillo-fondo);
+    }
+
+    .abrir-sidebar ion-icon:hover{
+        color: var(--amarillo-fondo);
+    }
+
+    .cerrar-sidebar {
+        width: 150px;
+        height: 140px;
+        background-color: transparent;
+        color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+    }
+
+    /*------------*/
+    .contenedor-contacto {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width:235px) {
+
+    .servicios-info h2 {
+        text-align: center;
+        color: white;
+        font-family: "Comic Sans MS", "Comic Sans", cursive;
+        font-size: 30px;
+        padding: 10px;
+    }
+}

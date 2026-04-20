@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --amarillo-fondo: rgba(253, 169, 18);
+    /*#fda912*/
+    --amarillo-letra: rgba(252, 193, 125);
+    /*#fcc17d*/
+    --font-comic: "Comic Sans MS", "Comic Sans", cursive;
+
+}
+
+body {
+    height: 100vh;
+    background-image: url("/img/fondoTacosDeGuisado.jpg");
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+}
+
+.container h1 {
+    color: var(--amarillo-letra);
+    font-family: var(--font-comic);
+}
+
+div input[type="submit"]{
+    color: white;
+    border: 1px solid var(--amarillo-fondo);
+}
+
+div input[type="submit"]:hover{
+    color: var(--amarillo-letra);
+    border: 1px solid white;
+}

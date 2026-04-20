@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --amarillo-fondo: #fda912;
+    --amarillo-letra: #fcc17d;
+    --font-comic: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+body {
+    background-image: url('/img/fondoTacosDeGuisado.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    font-family: var(--font-comic);
+}
+
+/* --- HEADER RESPONSIVO --- */
+.cabeza {
+    min-height: 230px;
+    background: black;
+    display: flex;
+    flex-direction: column; /* En móvil, un elemento sobre otro */
+    align-items:center;
+    justify-content:space-between;
+    margin: 30px;
+    padding: 15px;
+    border: 4px solid var(--amarillo-fondo);
+    gap: 10px;
+}
+
+.logo a img {
+    height: auto;
+    width: 150px; /* Tamaño más pequeño para móvil */
+    border: 3px solid var(--amarillo-fondo);
+    transition: 0.3s;
+    border-radius: 10px;
+}
+
+.logo a img:hover{
+    border: 3px dashed var(--amarillo-fondo);
+}
+
+.cabeza h1 {
+    font-size: 1.2rem;
+    background-color: transparent;
+}
+
+.cabeza h1 a {
+    text-decoration: none;
+    color: white;
+}
+
+.cabeza h1 a:hover {
+    text-decoration: none;
+    color: var(--amarillo-letra);
+}
+
+
+/* --- CONTENEDOR Y CARTA --- */
+.contenedor {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.carta-guisos {
+    background: rgba(0, 0, 0, 0.9);
+    width: 100%; /* Ocupa todo el ancho en móvil */
+    max-width: 900px;
+    border: 4px solid var(--amarillo-fondo);
+    padding: 15px 5px;
+}
+
+.carta-guisos h1 {
+    color: white;
+    font-size: 2.5rem; /* Reducido para móvil */
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* --- PRODUCTOS --- */
+.informacion {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 2px dashed white;
+}
+
+.nombre-producto {
+    color: white;
+    font-size: 1.2rem; /* Tamaño legible en móvil */
+    flex: 2;
+}
+
+.flecha {
+    font-size: 1.5rem;
+    color: var(--amarillo-fondo);
+    margin: 0 10px;
+    /* Quitamos el transform scaleX(5) porque rompe el diseño en pantallas pequeñas */
+}
+
+.p {
+    font-size: 1.4rem;
+    color: var(--amarillo-letra);
+    font-weight: bold;
+    flex: 1;
+    text-align: right;
+}
+
+.informacion-refrescos{
+    text-align: center;
+}
+
+.informacion-refrescos h2{
+    color: var(--amarillo-fondo);
+}
+
+
+/* --- FOOTER --- */
+.relleno h6 {
+    color: var(--amarillo-letra);
+    text-shadow: 2px 2px 5px black;
+    font-size: 2rem;
+    text-align: center;
+}
+
+/* --- MEDIA QUERIES (Para pantallas más grandes como Tablets o PC) --- */
+@media (min-width: 768px) {
+    .cabeza {
+        flex-direction: row; /* En PC se ponen en fila */
+        height: 140px;
+        margin: 10px;
+    }
+
+    .logo a img {
+        width: 200px;
+    }
+
+    .cabeza h1 {
+        font-size: 2rem;
+    }
+
+    .carta-guisos {
+        width: 90%;
+        padding: 40px;
+    }
+
+    .nombre-producto {
+        font-size: 2.5rem;
+    }
+
+    .p {
+        font-size: 2.5rem;
+    }
+
+    .flecha {
+        font-size: 3rem;
+        display: block;
+    }
+}
+
+@media screen and (max-width:767px) {
+    .nombre-producto{
+        font-size: 3rem;
+    }
+
+    .flecha{
+        font-size: 4rem;
+        transform: scaleX(2);
+    }
+
+    .p{
+        font-size: 4rem;
+    }
+}
+
+@media (min-width: 300px) {
+    
+    .nombre-producto{
+        font-size: 2.5rem;
+    }
+
+    .flecha{
+        font-size: 2rem;
+    }
+
+    .p{
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-width:300px) {
+    .nombre-producto{
+        font-size: 1.5rem;
+    }
+
+    .flecha{
+visibility: hidden;
+    }
+
+    .p{
+        font-size: 2rem;
+    }
+}

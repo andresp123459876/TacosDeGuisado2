@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <title>Admin</title>
+</head>
+
+<body>
+    <header>
+        <h1><a href="/user/logout">Salir</a></h1>
+        <h2>Modificar Menu</h2>
+        <h3>Usuario: <%= user.charAt(0).toUpperCase() + user.slice(1) %>
+        </h3>
+        <!--charAt(0).toUpperCase toma la primera letra y la hace mayuscula, slice(1) muestra todo apartir de la posicion [1] del string-->
+    </header>
+
+    <div class="container">
+        <div class="header-carta">
+            <h2 class="titulo-carta">Menu del dia</h2>
+            <form action="/user/admin/agregar" method="POST" class="form-agregar">
+                <input type="text" name="nombre" placeholder="Nombre del platillo" required>
+                <input type="text" name="descripcion" placeholder="Descripción" required>
+                <input type="number" name="precio" placeholder="Precio" required>
+                <button type="submit" class="boton-agregar">Agregar nuevo platillo</button>
+            </form>
+        </div>
+
+        <div class="container-menu">
+            <% if (platillos && platillos.length> 0) { %>
+                <% platillos.forEach(platillo=> { %>
+                    <div class="platillos">
+                        <div class="descripcion-taco">
+                            <h3>
+                                <%= platillo.nombre %>
+                            </h3>
+                            <p>
+                                <%= platillo.descripcion %>
+                            </p>
+                            <h2>
+                                <%= platillo.precio %> $
+                            </h2>
+                        </div>
+                        <div class="botones">
+                            <form action="/user/admin/eliminar" method="POST">
+                                <input type="hidden" name="id" value="<%= platillo.id %>">
+                                <button type="submit" class="boton-eliminar">Eliminar</button>
+                            </form>
+                            <form action="/user/admin/editar/<%= platillo.id %>" method="GET" style="margin:0;">
+                                <button type="submit" class="boton-modificar">Modificar</button>
+                            </form>
+                        </div>
+                    </div>
+                    <% }) %>
+                        <% } %>
+        </div>
+    </div>
+</body>
+
+</html>
