@@ -10,6 +10,12 @@ import rateLimit from 'express-rate-limit';
 import { pool } from './config/dbConfig.js';
 import { initialize } from './passportConfig.js';
 
+/*cambios para vercel */
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+// Ahora ya puedes usar __dirname en el resto de tu código
+
 const app = express();
 
 initialize(passport);
@@ -61,10 +67,15 @@ app.use(
     })
 );
 
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
-app.use(express.static(path.join('public')));
+/*editado para verrcel*/ 
+// app.use(express.static(path.join('public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // ─── RUTAS PÚBLICAS ───────────────────────────────────────────────────────────
 
