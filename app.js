@@ -88,16 +88,16 @@ app.get('/', (req, res) => {
     const listaTacos = [
         { nombre: 'Carnita con Nopales', imagen: 'TacoDeCarnitaConNopales(NegraComic).jpg' },
         { nombre: 'Chicharrón Prensado', imagen: 'TacoDeChicharronPrensado(NegraComic).jpg' },
-        { nombre: 'Milanesa de Pollo', imagen: '/img/tacos/TacoDeMilanesa(NaranjaComic).jpg' },
-        { nombre: 'Mole con Huevo', imagen: './img/tacosTacoDeMoleConHuevoDuro(NegraComic).jpg' },
-        { nombre: 'Carnita en Chile Morita', imagen: '/img/tacos/TacoDeMorita(NaranjaComic).jpg' },
-        { nombre: 'Salpicon/Aporreadillo', imagen: '/img/tacos/TacoDeSalpicon(NaranjaComic).jpg' },
+        { nombre: 'Milanesa de Pollo', imagen: 'TacoDeMilanesa(NaranjaComic).jpg' },
+        { nombre: 'Mole con Huevo', imagen: 'TacoDeMoleConHuevoDuro(NegraComic).jpg' },
+        { nombre: 'Carnita en Chile Morita', imagen: 'TacoDeMorita(NaranjaComic).jpg' },
+        { nombre: 'Salpicon/Aporreadillo', imagen: 'TacoDeSalpicon(NaranjaComic).jpg' },
     ];
 
     const imagenesCarrusel = [
-        { url: '/img/TacoDeGuisadoLogo.jpg', alt: 'Logo Principal' },
-        { url: '/img/Promocion3TacosDeGuisadox110.jpg', alt: 'Promoción 3x110' },
-        { url: '/img/JuevesDePozoleEstiloGuerrero12a6pm.png', alt: 'Jueves de Pozole' },
+        { url: 'TacoDeGuisadoLogo.jpg', alt: 'Logo Principal' },
+        { url: 'Promocion3TacosDeGuisadox110.jpg', alt: 'Promoción 3x110' },
+        { url: 'JuevesDePozoleEstiloGuerrero12a6pm.png', alt: 'Jueves de Pozole' },
     ];
 
     res.render('index.ejs', { tacos: listaTacos, slides: imagenesCarrusel });
