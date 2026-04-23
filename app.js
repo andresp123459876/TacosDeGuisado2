@@ -369,7 +369,7 @@ app.post('/user/admin/actualizar-bebida/:id', checkNotAuthenticated, async (req,
     const { nombre, precio } = req.body;
 
     // const precioNum = parseFloat(precio);
-    if (isNaN(id) || !nombre || isNaN(precio) || precioNum < 0) {
+    if (isNaN(id) || !nombre || isNaN(precio) || precio < 0) {
         return res.status(400).send('Datos inválidos');
     }
 
