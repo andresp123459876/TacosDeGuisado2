@@ -111,7 +111,7 @@ app.get('/', async(req, res) => {
 
     try{
         await pool.query(
-        `INSERT INTO page_views (ip_addres, view_date)
+        `INSERT INTO page_views (ip_address, view_date)
         VALUES ($1, CURRENT_DATE)
         ON CONFLICT (ip_addres, view date) DO NOTHING`,
         [clientIp]
