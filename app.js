@@ -8,11 +8,14 @@ import passport from 'passport';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 
+import requestIp from 'request-ip';
+
 import { pool } from './config/dbConfig.js';
 import { initialize } from './passportConfig.js';
 
 /*cambios para vercel */
 import { fileURLToPath } from 'url';
+import { getClientIp } from 'request-ip';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 // Ahora ya puedes usar __dirname en el resto de tu código
@@ -22,6 +25,9 @@ const app = express();
 app.set('trust proxy', 1);
 
 initialize(passport);
+
+//middleware para obtener la IP
+app.use(requestIp.mw())
 
 // ─── Seguridad: headers HTTP ──────────────────────────────────────────────────
 // helmet agrega headers como X-Frame-Options, X-Content-Type-Options, etc.
@@ -85,7 +91,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // ─── RUTAS PÚBLICAS ───────────────────────────────────────────────────────────
 
-app.get('/', (req, res) => {
+app.get('/', async(req, res) => {
+    const clientIp = req.clientIp;
+
     const listaTacos = [
         { nombre: 'Carnita con Nopales', imagen: 'TacoDeCarnitaConNopales(NegraComic).jpg' },
         { nombre: 'Chicharrón Prensado', imagen: 'TacoDeChicharronPrensado(NegraComic).jpg' },
@@ -100,6 +108,17 @@ app.get('/', (req, res) => {
         { url: 'Promocion3TacosDeGuisadox110.jpg', alt: 'Promoción 3x110' },
         { url: 'JuevesDePozoleEstiloGuerrero12a6pm.png', alt: 'Jueves de Pozole' },
     ];
+
+    try{
+        await pool.query(
+        `INSERT INTO page_views (ip_addres, view_date)
+        VALUES ($1, CURRENT_DATE)
+        ON CONFLICT (ip_addres, view date) DO NOTHING`,
+        [clientIp]
+    );
+    } catch (err){
+        console.error("Error al registrar visita: ", err);
+    }
 
     res.render('index.ejs', { tacos: listaTacos, slides: imagenesCarrusel });
 });
