@@ -18,12 +18,13 @@ html {
 body {
     background-color: aqua;
     background-image: url('/img/fondoTacosDeGuisado.jpg');
-    background-size: cover;
+  /*  background-size: cover;*/
     background-position: center;
     background-attachment: scroll;
     /* El fondo se queda quieto al hacer scroll */
     min-height: 100vh;
     overflow-x: hidden;
+
 }
 
 header {
@@ -475,7 +476,7 @@ main {
 #contacto #redes-sociales ion-icon {
     font-size: 4rem;
     color: white;
-    margin-top: 15px;
+    margin-top: 10px;
     margin-bottom: 30px;
 }
 
